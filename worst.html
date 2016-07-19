@@ -64,6 +64,14 @@ response codes.  Additionally, not every browser makes the response
 codes available to WebDriver, so opting to use a proxy allows you to
 have a solution that works for every browser.
 
+<p>One example of a proxy that has additional functionality useful for testing is the <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target=blank>Zed Attack Proxy</a> from OWASP. The easiest way to run it is inside a <a href="https://www.kali.org/" target=blank>Kali Linux</a> virtual machine. Then you can force the FirefoxProfile to use your ZAP proxy before you start the driver:
+<pre><code>
+profile = new FirefoxProfile();
+profile.setPreference("network.proxy.http", "ZAP IP ADDRESS");
+profile.setPreference("network.proxy.http_port", 8080);
+profile.setPreference("network.proxy.type", 1);
+</code></pre>
+<p>The names and values of the profile preferences are as they appear when you open <code>about:config</code> in Firefox.
 
 <h2>Gmail, Email, and Facebook Logins</h2>
 
@@ -123,7 +131,7 @@ improve. There are performance testing tools available that can do
 this job, provide reporting and analysis and even make improvement
 suggestions.
 
-<p>Example (open source) packages to use are: Jmeter ?
+<p>Example (open source) packages to use are: Jmeter ? and <a href="https://sites.google.com/a/webpagetest.org/docs/advanced-features/webpagetest-restful-apis">WebPageTest</a>.
 
 
 <h2>Link Spidering</h2>
